@@ -54,8 +54,10 @@ def main():
     proj_dir = ""
     if len(sys.argv) > 1: 
         proj_dir = str(sys.argv[1])
+    elif sys.argv[1] == 'po':
+        proj_dir = os.getenv('PROJ', os.getenv('HOME') + '/proj')
     else:
-        proj_dir = os.getenv('PROJ_DIR', os.getenv('HOME') + '/proj')
+        proj_dir = '.'
     updateAllProjectDirectories(proj_dir)
                                   
 if __name__ == "__main__":

@@ -41,7 +41,8 @@ def updateProject(repo_dir, proj_dir):
 def updateGit(repo_dir):
     cur_dir = os.getcwd()
     os.chdir(repo_dir)
-    subprocess.call(['git', 'pull'])
+    subprocess.call(['git', 'remote', 'update'])
+    subprocess.call(['git', 'pull', '--all'])
     os.chdir(cur_dir)
     
 def updateSvn(repo_dir):
